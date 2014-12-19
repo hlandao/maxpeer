@@ -1,0 +1,23 @@
+{
+  "name": "maxpeer-chrome",
+  "version": "0.0.1",
+  "authors": [
+    "Hadar Landao <hlandao@gmail.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.7.0",
+    "zepto": "~1.1.6"
+  }
+}

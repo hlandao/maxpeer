@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>P2P loading of images</title>
+    <!--<script type="text/javascript" src="//api.peer5.com/peer5.js?id=z142i5n5qypq4cxr"></script>-->
+    <script type="text/javascript" src="//api.peer5.com/peer5.js?id=z142i5n5qypq4cxr"></script>
+
+</head>
+<body>
+<h1>Argentina Photos</h1>
+
+<p>
+All images are fetched using P2P in the background<br>
+In case no P2P, images are lazy loaded in HTTP using the cool <a href="https://github.com/toddmotto/echo">echo.js</a>.<br>
+The images are cached using the filesystem API, so to test out without - use Incognito mode
+</p>
+
+<img src="assets/The-Old-Mountain-Crystal-900x558.jpg?http">
+
+<h3>Sticks Andes</h3>
+<img src="loading.gif" data-echo="assets/Sticks%20Andes-900x627.jpg?http">
+
+<h3>The wild river</h3>
+<img src="loading.gif" data-echo="assets/The-Wild-River-900x600.jpg?http">
+
+
+<h3>The boats</h3>
+<img src="loading.gif" data-echo="assets/The-Boats-900x576.jpg?http">
+
+
+<h3>Old Mountain Crystal</h3>
+<img src="loading.gif" data-echo="assets/The-Old-Mountain-Crystal-900x558.jpg?http">
+
+<h3>Patagonia!</h3>
+<img src="loading.gif" data-echo="assets/The-Patagonia-900x600.jpg?http">
+
+
+<h3>Old car at sunset</h3>
+<img src="loading.gif" data-echo="assets/Old-Car-at-Sunset-900x600.jpg?http">
+
+
+<h3>Long line</h3>
+<img src="loading.gif" data-echo="assets/Long%20Line-900x525.jpg?http">
+
+
+
+
+<script>
+
+    function preloadP2P(imgs) {
+        for (var i=0;i<imgs.length;i++) {
+            var url = console.log();
+            var img = imgs[i];
+            var url = img.getAttribute('data-echo');
+            if (url) {
+                loadXHRimg(img,url, {downloadMode:"p2p"});
+            }
+        }
+    }
+
+    function loadXHRimg(img, url, opts) {
+        console.log('loading url ' + url);
+        var xhr = new peer5.Request(opts);
+//        xhr.responseType = 'blob';
+        xhr.open('GET', url);
+        xhr.onload = function(e) {
+//            if (this.status == 200) {
+//                var blob = this.response;
+
+//                img.src = window.URL.createObjectURL(blob);
+//            }
+            img.src = this.response;
+        };
+
+        xhr.send();
+    }
+
+</script>
+<script type="text/javascript" src="echo.js"></script>
+<script>
+    Echo.init({
+        offset: 0,
+        throttle: 250
+    });
+</script>
+
+
+
+</body>
+</html>

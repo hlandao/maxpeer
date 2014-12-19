@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "MaxPeer for Chrome",
+    "version": "0.0.1",
+    "description": "MaxPeer for Chrome!!!",
+    "background": {
+        "page": "background.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["contentScript.js"],
+            "run_at" : "document_end"
+        }
+    ],
+
+    "permissions": ["http://*/*","https://*/*","tabs"],
+    "web_accessible_resources": ["script1.js"]
+}
