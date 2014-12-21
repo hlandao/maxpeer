@@ -1,5 +1,5 @@
 (function(){
-    var addScript = function(){
+    var addPeer5Script = function(){
         var path = chrome.extension.getURL('./script1.js');
         var s = document.createElement("script");
         s.type = "text/javascript";
@@ -8,5 +8,5 @@
         document.head.appendChild(s);
     }
 
-    addScript();
+    addPeer5Script();
 })()

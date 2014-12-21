@@ -12,7 +12,7 @@ gulp.task('contentScript', function() {
 });
 
 gulp.task('copy', function() {
-    return gulp.src(['background.html','manifest.json','contentScript.js'])
+    return gulp.src(['background.html','manifest.json','contentScriptInjector.js'])
         .pipe(gulp.dest('./dist/'))
 });
 
